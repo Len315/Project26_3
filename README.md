@@ -1,180 +1,88 @@
-# Project26_2
+<<<<<<< HEAD
+# Project26_3
 
-This project implements four Unix utilities:
-- wcat
-- wgrep
-- wzip
-- wunzip
+This project implements a simple Unix shell called `wish`.
+
+The shell supports:
+- Running external programs using `execv`
+- Built-in commands: `exit`, `cd`, `path`
+- Input from interactive mode (terminal) and batch files
+- Output redirection using `>`
+- Parallel execution using `&`
+
+---
 
 ## Build
+
+>>>>>>> 980a8b7bcfbabc5861e32c646d86e58088244132
 ```bash
 make
 ```
 
-# wcat.c
+# wish.c
 
-Description:
-Prints the contents of one or more text files to standard output.
-
-Case 1, one input file:
+## Interactive mode:
 ```bash
-./wcat file1.txt
+./wish
 ```
 Result:
 ```
-one
-two
-three
+wish> ls
+wish> cd ..
+wish> exit
 ```
 
-Case 2, several input files:
+## Batch mode:
 ```bash
-./wcat file1.txt file2.txt file3.txt
+./wish batchfile.txt
 ```
 Result:
 ```
-one
-two
-three
-file2 contents
-file3 contents
+third line
+second line
+first line
 ```
 
-Example:
-```bash
-make
-./wcat tests/8.in
-./test-wcat.sh
+## Features:
+### 1. Built-in commands
+exit
+Terminates the shell.
+```
+wish> exit
+```
+cd
+Changes the current directory.
+```
+wish> cd /usr/bin
+```
+path
+Sets the search path for executables.
+```
+wish> path /bin /usr/bin
+```
+### 2. External commands
+Runs programs found in configured paths.
+```
+wish> ls
+wish> echo hello
+```
+### 3. Output redirection (>)
+Redirects stdout and stderr to a file.
+```
+wish> ls > out.txt
+```
+If the file does not exist, it is created.
+4. Parallel execution (&)
+Runs multiple commands concurrently.
+```
+wish> sleep 3 & echo hello
+>>>>>>> 980a8b7bcfbabc5861e32c646d86e58088244132
 ```
 
 ### Edge cases / Error handling
 Run the provided test suite:
 ```bash
-./test-wcat.sh
-```
 
-# wgrep.c
-
-Description:
-Searches for a string and prints all matching lines.
-
-Case 1, searching from standard input:
-```bash
-echo -e "hello\nworld\nhello again" | ./wgrep hello
-```
-Result:
-```
-hello
-hello again
-```
-
-Case 2, searching in one file:
-```bash
-./wgrep hello file.txt
-```
-Result:
-```
-hello
-hello again
-hello world
-```
-
-Case 3, searching in multiple files:
-```bash
-./wgrep second file1.txt file2.txt file3.txt
-```
-Result:
-```
-second line of file1
-second line of file2
-second line of file3
-```
-
-Example:
-```bash
-make
-cat tests/4.in | ./wgrep words
-./test-wgrep.sh
-```
-
-### Edge cases / Error handling
-Run the provided test suite:
-```bash
-./test-wgrep.sh
-```
-
-# wzip.c
-
-Description:
-Compresses one or more files using run-length encoding (RLE).
-
-Case 1, compressing one file:
-```bash
-./wzip input.txt > output.z
-```
-
-Result:
-Writes the compressed binary data to `stdout`.
-
-Case 2, compressing multiple files:
-```bash
-./wzip file1.txt file2.txt > output.z
-```
-
-Result:
-Writes the compressed binary data to stdout.
-
-Example:
-```bash
-make
-./wzip tests/4.in > output.z
-./test-wzip.sh
-```
-
-### Edge cases / Error handling
-Run the provided test suite:
-```bash
-./test-wzip.sh
-```
-
-# wunzip.c
-
-Description:
-Decompresses files created by `wzip`.
-
-Case 1, decompressing one file:
-```bash
-./wunzip output.z
-```
-
-Result:
-Writes the decompressed text to `stdout`.
-
-Case 2, decompressing to a file:
-```bash
-./wunzip output.z > restored.txt
-```
-
-Result:
-The decompressed text is written to `restored.txt`.
-
-Case 3, decompressing multiple compressed files:
-```bash
-./wunzip part1.z part2.z > restored.txt
-```
-
-Result:
-The decompressed contents of all files are written to `restored.txt`.
-
-Example:
-```bash
-make
-./wunzip output.z
-./test-wunzip.sh
-```
-
-### Edge cases / Error handling
-Run the provided test suite:
-```bash
-./test-wunzip.sh
+./test-wish.sh
+>>>>>>> 980a8b7bcfbabc5861e32c646d86e58088244132
 ```
