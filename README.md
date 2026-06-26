@@ -42,7 +42,7 @@ first line
 ```
 
 ## Features:
-1. Built-in commands
+### 1. Built-in commands
 exit
 Terminates the shell.
 ```
@@ -58,13 +58,13 @@ Sets the search path for executables.
 ```
 wish> path /bin /usr/bin
 ```
-2. External commands
+### 2. External commands
 Runs programs found in configured paths.
 ```
 wish> ls
 wish> echo hello
 ```
-3. Output redirection (>)
+### 3. Output redirection (>)
 Redirects stdout and stderr to a file.
 ```
 wish> ls > out.txt
