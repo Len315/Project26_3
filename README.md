@@ -19,8 +19,6 @@ make
 
 # wish.c
 
-# Run
-
 ## Interactive mode:
 ```bash
 ./wish
