@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Project26_3
 
 This project implements a simple Unix shell called `wish`.
@@ -13,8 +12,6 @@ The shell supports:
 ---
 
 ## Build
-
->>>>>>> 980a8b7bcfbabc5861e32c646d86e58088244132
 ```bash
 make
 ```
@@ -76,7 +73,6 @@ If the file does not exist, it is created.
 Runs multiple commands concurrently.
 ```
 wish> sleep 3 & echo hello
->>>>>>> 980a8b7bcfbabc5861e32c646d86e58088244132
 ```
 
 ### Edge cases / Error handling
@@ -84,5 +80,4 @@ Run the provided test suite:
 ```bash
 
 ./test-wish.sh
->>>>>>> 980a8b7bcfbabc5861e32c646d86e58088244132
 ```
